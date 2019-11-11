@@ -1,0 +1,24 @@
+{
+  "name": "courses-dropdown",
+  "version": "1.0.0",
+  "description": "",
+  "main": "config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hanywang2/courses-dropdown.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hanywang2/courses-dropdown/issues"
+  },
+  "homepage": "https://github.com/hanywang2/courses-dropdown#readme",
+  "dependencies": {
+    "firebase": "^7.3.0"
+  }
+}
