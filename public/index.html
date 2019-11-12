@@ -17,14 +17,24 @@
             function getData() {
                 console.clear();
                 const input = $('#course-dropdown').val().trim().toUpperCase();
-                if (input.length >= 2) {
-                    let result = [];
+                let code = [];
+                let title = [];
+                if (input.length >= 3) {
                     for (let attr in json) {
-                        if (json[attr].title && json[attr].title.indexOf(input) !== -1) {
-                            console.log(json[attr].title);
+                        if (~attr.indexOf(input)) {
+                            code.push(json[attr].title);
+                        }
+                        else if (json[attr].title && ~json[attr].title.toUpperCase().indexOf(input)) {
+                            title.push(json[attr].title);
                         }
                     }
+                    code.sort();
+                    title.sort();
                 }
+                const result = code.concat(title);
+                result.map(val => {
+                    console.log(val);
+                })
             }
         </script>
     </body>
