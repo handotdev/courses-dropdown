@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <input id="course-dropdown" style="width:100%" type="text" onkeyup="getData()">
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script>
+            let json = {};
+
+            $.getJSON("courses.json", (data) => {
+                json = data;
+            })
+
+            function getData() {
+                console.clear();
+                const input = $('#course-dropdown').val().trim().toUpperCase();
+                if (input.length >= 2) {
+                    let result = [];
+                    for (let attr in json) {
+                        if (json[attr].title && json[attr].title.indexOf(input) !== -1) {
+                            console.log(json[attr].title);
+                        }
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>

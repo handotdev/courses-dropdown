@@ -1,22 +1,11 @@
-// import file system
-const fs = require('fs');
-// import Firebase from 'firebase'
-const firebase = require('firebase');
-// import firebase configuration credentials hidden from gith
-const { firebaseConfig } = require('./config');
+// Import express for creating REST APIs
+const express = require('express');
 
-const getData = async () => {
-    if (!firebase.apps.length) {
-        firebase.initializeApp(firebaseConfig);
-    }
-    const db = firebase.firestore();
-    
-    // firebase collection
-    const courses = await db.collection('emails').get();
-    
-    courses.map(val => {
-        console.log(val.title);
-    })
-}
+const app = express();
 
-getData();
+app.use(express.static(`${__dirname}/public`));
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Listening on port ${PORT}`);
+});
